@@ -1,3 +1,3 @@
-module github.com/mmp/earcut-go
+module github.com/franciscod/earcut-go
 
 go 1.19
