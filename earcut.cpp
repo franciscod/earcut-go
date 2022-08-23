@@ -10,7 +10,7 @@ using EarPoint = std::array<double, 2>;
 using EarPoly = std::vector<std::vector<EarPoint>>;
 
 void *NewPolygon() {
-    EarPoly* poly = new std::vector<std::vector<EarPoint>>();
+    EarPoly* poly = new EarPoly();
     return static_cast<void*>(poly);
 }
 
@@ -22,7 +22,7 @@ void DeletePolygon(void *_poly) {
 void AddRing(void *_poly, Vertex *v, int s, int e) {
     EarPoly* poly = static_cast<EarPoly*>(_poly);
     std::vector<EarPoint> points(e-s);
-    for (int i = 0; i < e; ++i)
+    for (int i = s; i < e; ++i)
         points[i-s] = EarPoint{v[i].p[0], v[i].p[1]};
 
     poly->push_back(points);
